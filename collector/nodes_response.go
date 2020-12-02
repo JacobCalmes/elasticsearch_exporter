@@ -27,6 +27,14 @@ type NodeStatsNodeResponse struct {
 	HTTP             map[string]int                             `json:"http"`
 	Transport        NodeStatsTransportResponse                 `json:"transport"`
 	Process          NodeStatsProcessResponse                   `json:"process"`
+	Script           NodeStatsScript                            `json:"script"`
+}
+
+// NodeStatsScript is a representation of script-related statistics
+type NodeStatsScript struct {
+	Compilations              float64 `json:"compilations"`
+	CacheEvictions            float64 `json:"cache_evictions"`
+	CompilationLimitTriggered float64 `json:"compilation_limit_triggered"`
 }
 
 // NodeStatsBreakersResponse is a representation of a statistics about the field data circuit breaker

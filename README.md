@@ -1,13 +1,13 @@
-# Elasticsearch Exporter [![Build Status](https://travis-ci.org/justwatchcom/elasticsearch_exporter.svg?branch=master)](https://travis-ci.org/justwatchcom/elasticsearch_exporter)
+# Elasticsearch Exporter [![Build Status](https://travis-ci.org/JacobCalmes/elasticsearch_exporter.svg?branch=master)](https://travis-ci.org/JacobCalmes/elasticsearch_exporter)
 [![Docker Pulls](https://img.shields.io/docker/pulls/justwatch/elasticsearch_exporter.svg?maxAge=604800)](https://hub.docker.com/r/justwatch/elasticsearch_exporter)
-[![Go Report Card](https://goreportcard.com/badge/github.com/justwatchcom/elasticsearch_exporter)](https://goreportcard.com/report/github.com/justwatchcom/elasticsearch_exporter)
+[![Go Report Card](https://goreportcard.com/badge/github.com/JacobCalmes/elasticsearch_exporter)](https://goreportcard.com/report/github.com/JacobCalmes/elasticsearch_exporter)
 
 Prometheus exporter for various metrics about ElasticSearch, written in Go.
 
 ### Installation
 
 For pre-built binaries please take a look at the releases.
-https://github.com/justwatchcom/elasticsearch_exporter/releases
+https://github.com/JacobCalmes/elasticsearch_exporter/releases
 
 #### Docker
 
@@ -60,7 +60,7 @@ elasticsearch_exporter --help
 | web.telemetry-path      | 1.0.2                 | Path under which to expose metrics. | /metrics |
 | version                 | 1.0.2                 | Show version info on stdout and exit. | |
 
-Commandline parameters start with a single `-` for versions less than `1.1.0rc1`. 
+Commandline parameters start with a single `-` for versions less than `1.1.0rc1`.
 For versions greater than `1.1.0rc1`, commandline parameters are specified with `--`. Also, all commandline parameters can be provided as environment variables. The environment variable name is derived from the parameter name
 by replacing `.` and `-` with `_` and upper-casing the parameter name.
 
@@ -71,17 +71,17 @@ ES 7.x supports RBACs. The following security privileges are required for the el
 Setting | Privilege Required | Description
 :---- | :---- | :----
 exporter defaults | `cluster` `monitor` | All cluster read-only operations, like cluster health and state, hot threads, node info, node and cluster stats, and pending cluster tasks. |
-es.cluster_settings | `cluster` `monitor` | 
-es.indices | `indices` `monitor` (per index or `*`) | All actions that are required for monitoring (recovery, segments info, index stats and status) 
-es.indices_settings | `indices` `monitor` (per index or `*`) | 
-es.shards | not sure if `indices` or `cluster` `monitor` or both | 
+es.cluster_settings | `cluster` `monitor` |
+es.indices | `indices` `monitor` (per index or `*`) | All actions that are required for monitoring (recovery, segments info, index stats and status)
+es.indices_settings | `indices` `monitor` (per index or `*`) |
+es.shards | not sure if `indices` or `cluster` `monitor` or both |
 es.snapshots | `cluster:admin/snapshot/status` and `cluster:admin/repository/get` | [ES Forum Post](https://discuss.elastic.co/t/permissions-for-backup-user-with-x-pack/88057)
 
 Further Information
 - [Build in Users](https://www.elastic.co/guide/en/elastic-stack-overview/7.3/built-in-users.html)
 - [Defining Roles](https://www.elastic.co/guide/en/elastic-stack-overview/7.3/defining-roles.html)
 - [Privileges](https://www.elastic.co/guide/en/elastic-stack-overview/7.3/security-privileges.html)
- 
+
 ### Metrics
 
 |Name                                                                   |Type       |Cardinality  |Help
